@@ -10,6 +10,9 @@ const WorkModel = (sequelize, DataTypes) => {
     description: DataTypes.STRING,
     createdAt: DataTypes.DATE,
     updatedAt: DataTypes.DATE,
+  },
+  {
+    tableName: 'works',
   });
 
   return Work;
