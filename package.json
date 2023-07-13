@@ -5,6 +5,7 @@
   "main": "src/api/server.js",
   "scripts": {
     "start": "node src/api/server.js",
+    "test": "jest --coverage",
     "dev": "nodemon src/api/server.js",
     "db:reset": "sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   },
@@ -18,7 +19,9 @@
     "sequelize": "6.3.4"
   },
   "devDependencies": {
+    "jest": "^29.6.1",
     "nodemon": "^3.0.1",
-    "sequelize-cli": "6.2.0"
+    "sequelize-cli": "6.2.0",
+    "supertest": "^6.3.3"
   }
 }
