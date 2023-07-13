@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/api/server.js",
   "scripts": {
-    "start": "env $(cat .env) node src/api/server.js",
+    "start": "node src/api/server.js",
     "dev": "nodemon src/api/server.js",
     "db:reset": "sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   },
