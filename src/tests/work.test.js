@@ -22,7 +22,6 @@ describe('GET/ return Work', () => {
   });
 
   it('Must return 200 to one work', async () => {
-    // Work.findAll = jest.fn().mockResolvedValue(mockWorkes);
     jest.spyOn(Work, 'findOne').mockResolvedValue(mockWorks[0]);
 
     const response = await request(app).get('/works/1');
@@ -34,3 +33,4 @@ describe('GET/ return Work', () => {
     expect(response.body).toEqual(mockWorks[0]);
   });
 });
+// http://gerenciamento-ambiental-back-env-1.eba-2yat4twf.us-east-2.elasticbeanstalk.com/
