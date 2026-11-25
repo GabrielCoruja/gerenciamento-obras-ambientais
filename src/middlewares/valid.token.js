@@ -1,19 +1,22 @@
 const jwt = require('jsonwebtoken');
 
-const secret = process.env.JWT_SECRET || 'secret';
-
-
-// APLICAÇÃO NÃO TEM LOGIN, É SÓ PARA TESTES NA AWS
+// A aplicação não tem rota de login: o token é gerado fora dela
+// (por exemplo, com `npm run token`) usando o mesmo JWT_SECRET.
 const validToken = (req, res, next) => {
-  const token = req.headers.authorization;
-  if (!token) return res.status(401).json({ message: 'missing auth token' });
-  try {
-    const decoded = jwt.verify(token, secret);
-    req.user = decoded;
-    next();
-  } catch (err) {
-    return res.status(401).json({ message: 'jwt malformed' });
+  const secret = process.env.JWT_SECRET;
+  if (!secret) {
+    return res.status(500).json({ message: 'JWT_SECRET não configurado' });
   }
-}
+
+  const token = req.headers.authorization;
+  if (!token) return res.status(401).json({ message: 'Token não informado' });
+
+  try {
+    req.user = jwt.verify(token, secret);
+    return next();
+  } catch (err) {
+    return res.status(401).json({ message: 'Token inválido' });
+  }
+};
 
 module.exports = validToken;

@@ -1,0 +1,13 @@
+services:
+  db:
+    image: mysql:8.4
+    container_name: obras_ambientais_db
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
