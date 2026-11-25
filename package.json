@@ -1,28 +1,31 @@
 {
-  "name": "gerenciamento-ambiental-back",
+  "name": "gerenciamento-obras-ambientais",
   "version": "1.0.0",
-  "description": "",
+  "description": "API REST para consulta de obras sustentáveis",
   "main": "src/api/server.js",
   "scripts": {
     "start": "node src/api/server.js",
     "test": "jest --coverage",
     "dev": "nodemon src/api/server.js",
-    "db:reset": "sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
+    "db:reset": "sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "token": "node scripts/generate-token.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Gabriel Dalseco",
+  "license": "MIT",
   "dependencies": {
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "jsonwebtoken": "^9.0.1",
-    "mysql2": "2.1.0",
-    "sequelize": "6.3.4"
+    "dotenv": "^17.4.2",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.24.6",
+    "sequelize": "^6.37.8"
   },
   "devDependencies": {
-    "jest": "^29.6.1",
-    "nodemon": "^3.0.1",
-    "sequelize-cli": "6.2.0",
-    "supertest": "^6.3.3"
+    "jest": "^30.5.2",
+    "nodemon": "^3.1.14",
+    "sequelize-cli": "^6.6.5",
+    "supertest": "^7.3.2"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }

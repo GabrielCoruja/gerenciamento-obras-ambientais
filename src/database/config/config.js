@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({ quiet: true });
 
 const config = {
   username: process.env.MYSQL_USER || 'root',
